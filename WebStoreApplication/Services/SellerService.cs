@@ -7,9 +7,9 @@ using WebStoreApplication.Models;
 
 namespace WebStoreApplication.Services
 {
-    public class SellerService 
+    public class SellerService
     {
-        private readonly WebStoreApplicationContext  _context;
+        private readonly WebStoreApplicationContext _context;
 
         public SellerService(WebStoreApplicationContext context)
         {
@@ -20,6 +20,12 @@ namespace WebStoreApplication.Services
         {
             return _context.Seller.ToList();
 
+        }
+
+        public void Insert(Seller obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
         }
 
     }
